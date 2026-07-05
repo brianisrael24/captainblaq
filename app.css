@@ -1,5 +1,3 @@
-
-
 html{
     scroll-behavior: smooth;
 }
@@ -8,9 +6,15 @@ body{
     margin: 0;
     background-color: #eee8e0;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling on mobile */
 }
 
-
+/* GLOBAL RESPONSIVE IMAGE RULE */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
 p{
     font-size: 20px;
@@ -59,8 +63,6 @@ a{
     font-weight: 400;
 }
 
-
-
 header{
     position: relative;
     top: 0;
@@ -77,13 +79,16 @@ header{
 
 .head{
     display: flex;
-    justify-content: space-evenly;
-    gap: 2.5em;
+    justify-content: space-between;
+    gap: 1.5em;
     flex-wrap: nowrap;
     align-items: center;
 }
 
-
+.responsive-img-logo {
+    width: 150px;
+    height: auto;
+}
 
 li{
     list-style: none;
@@ -93,13 +98,13 @@ ul{
     display: flex;
     gap: 35px;
     align-items: center;
-    margin-top: 44px;
+    margin: 0;
+    padding: 0;
 }
 
 #navbar{
     display: block;
     text-align: center;
-    align-items: center;
 }
 
 nav ul li a{
@@ -112,19 +117,13 @@ nav ul li a{
     padding-bottom: 6px;
 }
 
-
-
 nav ul li a:visited{
     color: white;
 }
 
-/* HOVER */
-
 nav ul li a:hover{
     color: goldenrod;
 }
-
-/* UNDERLINE EFFECT */
 
 nav ul li a::after{
     content: "";
@@ -153,84 +152,82 @@ nav ul li a:active::after{
     width: 100%;
 }
 
+/* HAMBURGER STYLES (HIDDEN BY DEFAULT ON DESKTOP) */
+.menu-checkbox {
+    display: none;
+}
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 28px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
 
 .icon{
     display: flex;
-    gap: 12px;
-    margin-top: 17px;
+    gap: 15px;
     cursor: pointer;
 }
 
-#icons{
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-#iicon{
+.iicon{
     display: flex;
     align-items: center;
     transition: 0.3s ease;
 }
 
-#iicon:hover{
+.iicon:hover{
     transform: translateY(-3px);
 }
 
-#iicon h5{
+.iicon h5{
     color: white;
     font-weight: 300;
     font-size: 16px;
-    margin-left: 10px;
+    margin: 0 0 0 5px;
 }
 
-
-
 .background{
-    background-image:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url(/african/displayII.png);
-
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(/african/displayII.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     padding: 30px;
     min-height: 100vh;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
-
 
 .hero{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
-}
-
-.hero a{
-    text-decoration: none;
+    flex-grow: 1;
 }
 
 #hero{
     text-align: center;
-    border: 0px;
-    padding: 30px;
-    margin-top: 100px;
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.9),
-        rgba(0,0,0,0.35)
-    );
-
+    padding: 40px;
+    margin-top: 40px;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.35));
     border-radius: 25px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    max-width: 700px;
+    width: 100%;
 }
 
 #hero h1{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #hero p{
@@ -241,13 +238,18 @@ span{
     color: goldenrod;
 }
 
-
 #button{
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 #button a{
     color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #button button{
@@ -256,7 +258,6 @@ span{
     border: none;
     transition: all 0.3s ease;
     cursor: pointer;
-    font-weight: bold;
 }
 
 #button button:hover{
@@ -264,32 +265,18 @@ span{
     opacity: 0.9;
 }
 
-#button #red{
-    background-color: red;
-    margin-right: 12px;
-    border-style: none;
-}
-
-#button #black{
-    background-color: black;
-    border: 1px solid white;
-}
-
-#button #green{
-    background-color: #20b320;
-    margin-left: 12px;
-}
-
+#button #red{ background-color: red; }
+#button #black{ background-color: black; border: 1px solid white; }
+#button #green{ background-color: #20b320; }
 
 .main{
-    padding: 40px;
+    padding: 60px 40px;
 }
 
 .main h3{
     font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 #feature{
@@ -300,24 +287,23 @@ span{
     flex-wrap: wrap;
 }
 
-
-
-#food_container{
+.food_container_card{
     width: 350px;
+    max-width: 100%;
     border-radius: 25px;
     overflow: hidden;
     padding-bottom: 25px;
     display: flex;
     flex-direction: column;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     transition: 0.3s ease;
 }
 
-#food_container:hover{
+.food_container_card:hover{
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
-
-
 
 #feast-img{
     width: 100%;
@@ -330,14 +316,12 @@ span{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
     transition: transform 0.5s ease;
 }
 
 #feast-img img:hover{
     transform: scale(1.08);
 }
-
 
 #feast_word{
     padding: 20px;
@@ -349,24 +333,20 @@ span{
 }
 
 #feast_word h6{
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
     margin: 10px 0;
-    line-height: 1.3;
+    color: #222;
 }
 
 #feast_word p{
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 15px;
-    line-height: 1.5;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
 }
-
-
 
 #btn{
     background-color: red;
-    opacity: 0.9;
     color: wheat;
     border: none;
     padding: 12px;
@@ -379,62 +359,46 @@ span{
 }
 
 #btn:hover{
-    opacity: 1;
-    transform: scale(1.03);
+    opacity: 0.9;
+    transform: scale(1.02);
 }
-
-
-
-.food_container{
-    height: auto;
-}
-
-
 
 .mid{
     display: flex;
     justify-content: center;
-    gap: 300px;
+    gap: 100px;
     padding: 60px 40px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.mid img{
-    margin-bottom: 20px;
+.mid-story-img {
+    width: 500px;
+    max-width: 100%;
     border-radius: 24px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     transition: 0.4s ease;
 }
 
-.mid img:hover{
+.mid-story-img:hover{
     transform: scale(1.03);
 }
 
-
-
-#story{
-    align-content: center;
-}
-
 #story h5{
-    text-align: center;
     background-color: rgba(226, 174, 76, 0.89);
-    display: inline;
+    display: inline-block;
     padding: 6px 12px;
     border-radius: 12px;
-    margin-top: 12px;
-    font-size: 24px;
-    font-weight: 450;
+    font-size: 18px;
     text-transform: capitalize;
+    margin-bottom: 10px;
 }
 
 #story h2{
     color: black;
-    font-size: 32px;
-    letter-spacing: -1.5px;
+    font-size: 36px;
+    margin: 10px 0;
 }
-
-
 
 #mid_btn{
     background-color: rgba(44, 41, 41, 0.85);
@@ -449,14 +413,11 @@ span{
 }
 
 #mid_btn:hover{
-    transform: scale(1.03);
     background-color: black;
 }
 
-
-
 .task-container{
-    padding: 50px;
+    padding: 60px 40px;
 }
 
 .task-container h4{
@@ -466,30 +427,28 @@ span{
 }
 
 #taskbar{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
 }
 
-#taskbar h5{
-    font-weight: 700;
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
+.taskcard-wrapper {
     text-align: center;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
 }
 
-#taskcard{
-    text-align: center;
-}
-
-
-
-#taskbarimg{
+.task-img {
+    width: 95px;
+    margin: 0 auto 15px auto;
     transition: transform 0.5s ease;
-    cursor: pointer;
 }
 
+.task-img:hover {
+    transform: rotate(10px) scale(1.05);
+}
 
 #gallery{
     display: grid;
@@ -498,207 +457,231 @@ span{
     padding: 40px;
     max-width: 1400px;
     margin: auto;
-    align-items: center;
 }
-
 
 .galleryimg{
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    height: 250px;
 }
 
-
-.galleryimg:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
- 
 .galleryimg img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
     transition: transform 0.5s ease;
 }
-
 
 .galleryimg:hover img{
     transform: scale(1.08);
 }
 
 #btm_gallery{
-    text-align: center;
     background-color:#222;
-    padding: 10px;
+    padding: 12px 24px;
     border-radius: 7px;
     border: none;
-    margin-bottom: 12px;
-  
+    margin-bottom: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#btm_gallery a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#btm_gallery:hover{
+    background-color: #000;
+    transform: translateY(-3px);
 }
 
 .gallery h4{
     text-align: center;
-    letter-spacing: -2px;
     font-size: 36px;
 }
 
-#btm_gallery:hover{
-    transform: translateY(-5px);
-    transition: all 0.3 ease;
+.Reservation-section {
+    padding: 60px 40px;
+    background: #ddd6cc;
+    text-align: center;
+}
+
+#Reservation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+#Reservation form input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 200px;
+    max-width: 100%;
+}
+
+#btn_reservation {
+    background: red;
+    border: none;
+    border-radius: 8px;
+    padding: 0 24px;
     cursor: pointer;
 }
 
-#btm_gallery a:hover{
-    transform: translateY(-5px);
-    cursor: pointer;
-    transition: all 0.3 ease;
-}
-
-#btm_gallery a {
-    text-decoration: none;
-    color: #fff;
+#btn_reservation a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 48px;
 }
 
 .footer{
     display: flex;
-    flex-wrap: nowrap;
-    background-color: #a1a0a0;
-    margin-top: 50px;
+    flex-wrap: wrap;
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
     justify-content: space-between;
+    gap: 30px;
 }
 
-#hb{
-    font-size: 24px;
-    font-weight: 600;
+.footer h3, .footer p, .footer a {
+    color: white;
 }
 
-.hb{
-    margin-top: 120px;
+.footer-logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
-#footerlink nav ul{
-    display: flex;
-        flex-direction: column;
-
+#footerlink ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-#footerlink li a{
-    color: white
-
-}
-
-#footerlink p{
-    font-size: 16px;
-    font-weight: 300;
-}
-
-
-
-
-
-
-@media(max-width: 1200px){
-
-    .mid{
-        gap: 100px;
-    }
-
-    #taskbar{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE STYLING)
+   ========================================================================== */
 
 @media(max-width: 992px){
+    .head {
+        padding: 15px 20px;
+    }
 
-    .head{
+    /* Show hamburger icon */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Transform navigation layout into side drawer menu */
+    #navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        border-radius: 0 0 25px 25px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    #navbar ul {
         flex-direction: column;
+        padding: 30px 0;
+        gap: 20px;
     }
 
-    ul{
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 10px;
+    /* Checkbox architecture to open/close menu on click */
+    .menu-checkbox:checked ~ #navbar {
+        max-height: 500px;
     }
 
-    .mid{
+    /* Hamburger animation to 'X' icon when checked */
+    .menu-checkbox:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-checkbox:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-checkbox:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .mid {
         flex-direction: column;
         text-align: center;
-        gap: 50px;
+        gap: 40px;
     }
 
-    h1{
-        font-size: 52px;
-    }
-
-    h2{
-        font-size: 38px;
-    }
+    h1{ font-size: 48px; }
+    h2{ font-size: 34px; }
 }
 
 @media(max-width: 768px){
+    h1{ font-size: 38px; }
+    h2{ font-size: 28px; }
+    h3{ font-size: 30px; }
+    p{ font-size: 16px; }
 
-    h1{
-        font-size: 42px;
+    #hero {
+        padding: 20px;
     }
 
-    h2{
-        font-size: 32px;
-    }
-
-    h3{
-        font-size: 32px;
-    }
-
-    p{
-        font-size: 17px;
-    }
-
-    #hero{
-        margin-top: 60px;
-    }
-
-    #button{
-        display: flex;
+    #button {
         flex-direction: column;
-        gap: 15px;
+        width: 100%;
     }
 
-    #button #green,
-    #button #red{
-        margin: 0;
+    #button button {
+        width: 100%;
     }
 
-    .mid img{
+    #Reservation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #Reservation form input, #btn_reservation {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #btn_reservation a {
+        display: block;
         width: 100%;
     }
 }
 
 @media(max-width: 480px){
-
-    h1{
-        font-size: 34px;
+    h1{ font-size: 30px; }
+    .background { padding: 15px; }
+    .main, .mid, .task-container, #gallery, .Reservation-section {
+        padding: 40px 15px;
     }
-
-    nav ul li a{
-        font-size: 16px;
+    .footer {
+        flex-direction: column;
+        text-align: center;
     }
-
-    #food_container{
-        width: 100%;
+    #footerlink ul {
+        align-items: center;
     }
-
-    .background{
-        padding: 15px;
-    }
-
-    .task-container{
-        padding: 20px;
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
